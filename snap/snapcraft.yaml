@@ -1,0 +1,26 @@
+name: suckit
+base: core18
+version: '0.1.0'
+summary: suckit
+description: |
+  SuckIT allows you to recursively visit and download a website's content to your disk.
+
+grade: stable
+confinement: strict
+
+parts:
+  suckit:
+    plugin: rust
+    source: https://github.com/Skallwar/suckit.git
+    source-tag: 'v$SNAPCRAFT_PROJECT_VERSION'
+    build-packages:
+      - pkg-config
+      - libssl-dev
+
+apps:
+  suckit:
+    command: suckit
+    plugs:
+      - network
+      - home
+      - removable-media
