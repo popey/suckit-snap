@@ -30,9 +30,6 @@ parts:
         git checkout "${last_committed_tag}"
       fi
       snapcraftctl set-version $(git -C ../src describe --tags  | sed 's/v//')
-    override-build: |
-      snapcraftctl build
-      snapcraftctl set-version "$(git describe --tags)"
 
 apps:
   suckit:
